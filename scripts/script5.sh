@@ -1,7 +1,7 @@
 #!/bin/bash
 # ============================================================
 # Script 5: Open Source Manifesto Generator
-# Author : Prathamesh Kumar | Reg No: 24MIP10034
+# Author : Amritanshu Gupta | Reg No: 24BCE11114
 # Course : Open Source Software Audit
 # Purpose: Interactively collects the user's perspective on
 #          open source and generates a personalized manifesto

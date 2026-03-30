@@ -1,7 +1,7 @@
 #!/bin/bash
 # ============================================================
 # Script 4: Log File Analyzer
-# Author : Prathamesh Kumar | Reg No: 24MIP10034
+# Author : Amritanshu Gupta | Reg No: 24BCE11114
 # Course : Open Source Software Audit
 # Purpose: Analyzes a log file for keyword occurrences using
 #          optimized grep-based counting. Provides summary

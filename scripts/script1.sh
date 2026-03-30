@@ -1,7 +1,7 @@
 #!/bin/bash
 # ============================================================
 # Script 1: System Identity Report
-# Author : Prathamesh Kumar | Reg No: 24MIP10034
+# Author : Amritanshu Gupta | Reg No: 24BCE11114
 # Course : Open Source Software Audit
 # Purpose: Gathers and displays host system identity info
 #          including kernel, distro, uptime, and architecture.
@@ -18,8 +18,8 @@ readonly CLR_WHITE='\033[1;37m'
 readonly CLR_DIM='\033[2m'
 
 # ─── Configuration ─────────────────────────────────────────
-readonly STUDENT_NAME="Prathamesh Kumar"
-readonly REG_NO="24MIP10034"
+readonly STUDENT_NAME="Amritanshu Gupta"
+readonly REG_NO="24BCE11114"
 readonly SOFTWARE_CHOICE="Visual Studio Code"
 
 # ─── Helper Functions ──────────────────────────────────────

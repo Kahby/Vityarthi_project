@@ -1,7 +1,7 @@
 #!/bin/bash
 # ============================================================
 # Script 2: FOSS Package Inspector
-# Author : Prathamesh Kumar | Reg No: 24MIP10034
+# Author : Amritanshu Gupta | Reg No: 24BCE11114
 # Course : Open Source Software Audit
 # Purpose: Inspects one or more FOSS packages on the system —
 #          checks installation status, version, location,

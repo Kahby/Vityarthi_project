@@ -1,7 +1,7 @@
 # 🔍 Open Source Software Audit — Visual Studio Code
 
 > **Course Project** | Open Source Software  
-> **Student:** Prathamesh Kumar — `24MIP10034`
+> **Student:** Amritanshu Gupta — `24BCE11114`
 
 ---
 
@@ -14,7 +14,7 @@ This project performs a comprehensive audit of **Visual Studio Code (VS Code)** 
 ## 🗂️ Project Structure
 
 ```
-oss-audit-24MIP10034/
+oss-audit-24BCE11114/
 ├── scripts/
 │   ├── script1.sh              # System Identity Report
 │   ├── script2.sh              # FOSS Package Inspector
@@ -114,4 +114,4 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 ---
 
-*Built with ❤️ for Open Source — Prathamesh Kumar (24MIP10034)*
+*Built with ❤️ for Open Source — Amritanshu Gupta (24BCE11114)*

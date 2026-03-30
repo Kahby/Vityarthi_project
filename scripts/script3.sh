@@ -1,7 +1,7 @@
 #!/bin/bash
 # ============================================================
 # Script 3: Disk and Permission Auditor
-# Author : Prathamesh Kumar | Reg No: 24MIP10034
+# Author : Amritanshu Gupta | Reg No: 24BCE11114
 # Course : Open Source Software Audit
 # Purpose: Audits key system directories — reports owner,
 #          group, octal permissions, and disk usage in a

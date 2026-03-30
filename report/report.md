@@ -4,8 +4,8 @@
 
 ---
 
-**Student Name:** Prathamesh Kumar  
-**Registration No.:** 24MIP10034  
+**Student Name:** Amritanshu Gupta  
+**Registration No.:** 24BCE11114  
 **Course:** Open Source Software  
 **Date:** March 2026
 
@@ -342,4 +342,4 @@ The five audit scripts demonstrate practical Bash scripting in a Linux environme
 
 ---
 
-*Report prepared by Prathamesh Kumar (24MIP10034) for the Open Source Software course audit.*
+*Report prepared by Amritanshu Gupta (24BCE11114) for the Open Source Software course audit.*
