@@ -5,7 +5,7 @@
 # Course : Open Source Software Audit
 # Purpose: Audits key system directories — reports owner,
 #          group, octal permissions, and disk usage in a
-#          formatted table. Also checks the VS Code config.
+#          formatted table. Also checks the VLC config.
 # ============================================================
 
 # ─── ANSI Color Definitions ────────────────────────────────
