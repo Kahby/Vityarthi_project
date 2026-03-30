@@ -1,0 +1,7 @@
+Open Source Manifesto
+Date: 26 March 2026
+
+I use Visual Studio Code every day, which represents the power of open collaboration.
+For me, freedom means freedom in the digital world.
+In the future, I aim to build developer tools and share it openly.
+I believe open source drives innovation and collective growth.
