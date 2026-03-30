@@ -1,11 +1,11 @@
 # Open Source Software Audit Report
 
-## Visual Studio Code (VS Code)
+## Visual Studio Code
 
 ---
 
-**Student Name:** Amritanshu Gupta  
-**Registration No.:** 24BCE11114  
+**Name:** Amritanshu Gupta  
+**Reg No:** 24BCE11114  
 **Course:** Open Source Software  
 **Date:** March 2026
 
@@ -30,147 +30,119 @@
 
 ## 1. Introduction
 
-Open-source software (OSS) has fundamentally reshaped the technology landscape by enabling transparency, collaboration, and collective ownership of code. This report audits **Visual Studio Code (VS Code)**, one of the most widely used open-source code editors in the world, examining its origins, licensing, ecosystem, ethical implications, and its footprint within a Linux environment.
+Open-source software has changed the way we build and share technology. The idea is simple — anyone can look at the code, modify it, and distribute it. This model has given us Linux, Git, Firefox, and thousands of other tools that developers rely on every day.
 
-The audit is supplemented by five Bash scripts that demonstrate practical system administration concepts — from gathering system identity to analyzing log files — all within the context of an open-source Linux system running VS Code.
+For this project, I chose to audit **Visual Studio Code (VS Code)**, which is one of the most popular code editors out there right now. It's built by Microsoft, but the source code is open and available on GitHub. I wanted to understand how it's licensed, how the community around it works, what it looks like on a Linux system, and how it stacks up against paid editors.
+
+I also wrote five Bash scripts as part of this audit. Each one does something practical — from gathering system info to analyzing log files — and they demonstrate different shell scripting concepts we've covered in class.
 
 ---
 
 ## 2. About Visual Studio Code
 
-Visual Studio Code is a **free, open-source** code editor developed by **Microsoft**. It is built on the **Electron** framework (which uses Chromium and Node.js) and is designed to be lightweight yet powerful.
+VS Code is a free code editor made by Microsoft. It runs on Windows, macOS, and Linux, and it's built on a framework called Electron (which basically wraps Chromium and Node.js into a desktop app). Despite being an Electron app, it's surprisingly fast for most use cases.
 
-### Key Characteristics
+Here's a quick summary:
 
-| Attribute | Detail |
-|-----------|--------|
-| **Type** | Source-code editor |
-| **Developer** | Microsoft |
-| **Written in** | TypeScript, JavaScript, CSS |
+| | |
+|---|---|
+| **Type** | Source code editor |
+| **Made by** | Microsoft |
+| **Built with** | TypeScript, JavaScript, CSS |
 | **Framework** | Electron |
-| **License** | MIT License (source code) |
+| **License** | MIT (for the source code) |
 | **Platforms** | Windows, macOS, Linux |
-| **First Release** | April 29, 2015 |
-| **Repository** | [github.com/microsoft/vscode](https://github.com/microsoft/vscode) |
+| **First released** | April 2015 |
+| **GitHub repo** | [microsoft/vscode](https://github.com/microsoft/vscode) |
 
-### Notable Features
-
-- **IntelliSense** — context-aware code completion powered by language servers.
-- **Integrated Terminal** — run shell commands directly inside the editor.
-- **Git Integration** — built-in source control management for Git repositories.
-- **Extensions Marketplace** — over 40,000 extensions for languages, themes, debuggers, and tools.
-- **Remote Development** — SSH, containers, and WSL support for remote coding.
-- **Live Share** — real-time collaborative editing with peers.
+What makes it stand out is the extension system. There are over 40,000 extensions in the marketplace — you can add support for pretty much any programming language, connect to remote servers, use AI code completion, and a lot more. Some of the features I use personally include IntelliSense (auto-completion), the built-in terminal, and Git integration.
 
 ---
 
 ## 3. History and Origin
 
-VS Code was first announced at the **Build 2015** developer conference on April 29, 2015, and was initially released as a **preview**. In November 2015, it was made open-source under the MIT License and published on GitHub.
+VS Code was announced at Microsoft's Build conference in April 2015. At that point, Microsoft was starting to shift its approach toward open source — which was a big deal, since for years they had been seen as anti-open-source.
 
-### Timeline
+The editor was open-sourced on GitHub in November 2015 under the MIT License, and it's been growing steadily since then.
 
-| Year | Milestone |
-|------|-----------|
-| 2015 | Announced at Build conference; open-sourced on GitHub |
-| 2016 | Version 1.0 released (stable); extensions API formalized |
-| 2017 | Remote development extensions introduced; marketplace growth |
-| 2018 | Live Share launched for real-time collaboration |
-| 2019 | VS Code becomes the **#1 developer tool** (Stack Overflow survey) |
-| 2020 | GitHub Codespaces integrates VS Code in the browser |
-| 2021 | vscode.dev launched — full editor running in a web browser |
-| 2022–2026 | Continued AI integration (GitHub Copilot), improved performance |
+Some key milestones:
 
-VS Code's rapid adoption is attributed to its **speed**, **extensibility**, and Microsoft's commitment to keeping the core open-source.
+- **2015** — First announced, then open-sourced on GitHub
+- **2016** — Version 1.0 came out, extensions API was formalized
+- **2017** — Remote development support started showing up
+- **2018** — Live Share launched (real-time collaboration)
+- **2019** — Became the #1 developer tool in the Stack Overflow survey
+- **2020** — GitHub Codespaces brought VS Code to the browser
+- **2021** — vscode.dev launched, so you could use it directly in a browser tab
+- **2022–2026** — AI features (GitHub Copilot), performance improvements, continued growth
+
+The reason it grew so fast is a combination of things: it's fast enough for daily use, the extension ecosystem is massive, and Microsoft has been genuinely investing in keeping it open.
 
 ---
 
 ## 4. Licensing
 
-### Source Code License — MIT
+This is an interesting topic because there's a subtle distinction most people miss.
 
-The VS Code source code is released under the **MIT License**, one of the most permissive open-source licenses available.
+**The source code** on GitHub is released under the **MIT License**. This is one of the most permissive licenses — you can use, modify, and redistribute the code for any purpose, including commercial use. There's no copyleft requirement, so you don't have to open-source your modifications.
 
-> **MIT License Summary:**  
-> - ✅ Commercial use  
-> - ✅ Modification  
-> - ✅ Distribution  
-> - ✅ Private use  
-> - ❌ Liability  
-> - ❌ Warranty
+**The official binary**, however — the one you download from code.visualstudio.com — is distributed under Microsoft's own proprietary license. It includes telemetry (usage tracking) and Microsoft branding. So the binary and the source code technically have different licenses.
 
-### Binary Distribution
+If that bothers you, there's a project called **VSCodium** that builds VS Code directly from the MIT-licensed source code, without Microsoft's telemetry or branding. It's functionally identical.
 
-It is important to note that the **official binary releases** of VS Code distributed by Microsoft contain **proprietary telemetry** and are governed by the [Microsoft Software License](https://code.visualstudio.com/License/). The fully open-source alternative is **VSCodium**, which builds from the same MIT-licensed source without Microsoft's branding or telemetry.
+For context, here's how the MIT License compares to other common open-source licenses:
 
-### Comparison of Open-Source Licenses
-
-| License | Permissiveness | Copyleft | Notable Users |
-|---------|---------------|----------|---------------|
-| MIT | Very High | No | VS Code, Node.js, React |
-| Apache 2.0 | High | No | Android, Kubernetes, TensorFlow |
-| GPL v2 | Moderate | Strong | Linux Kernel, Git |
-| GPL v3 | Moderate | Strong | GCC, Bash |
-| MPL 2.0 | Moderate | Weak | Firefox, Thunderbird |
+| License | How permissive | Copyleft? | Used by |
+|---------|---------------|-----------|---------|
+| MIT | Very | No | VS Code, React, Node.js |
+| Apache 2.0 | High | No | Android, Kubernetes |
+| GPL v2 | Moderate | Yes (strong) | Linux Kernel, Git |
+| GPL v3 | Moderate | Yes (strong) | GCC, Bash |
+| MPL 2.0 | Moderate | Yes (weak) | Firefox |
 
 ---
 
 ## 5. Community and Ecosystem
 
-### GitHub Metrics (as of 2026)
+VS Code has one of the largest open-source communities for any developer tool. As of 2026, the GitHub repository has around 170,000 stars, over 30,000 forks, and more than 2,000 people have contributed code to it. Issues are tracked publicly, and Microsoft publishes monthly iteration plans so you can see what they're working on next.
 
-| Metric | Value |
-|--------|-------|
-| ⭐ Stars | ~170,000+ |
-| 🍴 Forks | ~30,000+ |
-| 👥 Contributors | ~2,000+ |
-| 📝 Issues (total) | ~200,000+ |
-| 🔧 Monthly releases | Regular (first week of each month) |
+The extensions marketplace is a huge part of why VS Code is so popular. With 40,000+ extensions, you can customize it for basically any workflow. Some popular ones include:
 
-### Extensions Ecosystem
+- **Languages**: Python, C/C++, Java, Go, Rust
+- **Themes**: One Dark Pro, Dracula, Catppuccin
+- **Tools**: Prettier, ESLint, GitLens, Docker, Remote SSH
+- **AI**: GitHub Copilot, Tabnine, Codeium
 
-The VS Code Marketplace hosts over **40,000 extensions**, making it one of the largest editor extension ecosystems. Popular categories include:
-
-- **Languages:** Python, C/C++, Java, Go, Rust, JavaScript/TypeScript
-- **Themes:** One Dark Pro, Dracula, GitHub Theme, Catppuccin
-- **Productivity:** Prettier, ESLint, GitLens, Docker, Remote SSH
-- **AI:** GitHub Copilot, Tabnine, Codeium
-
-### Community Contributions
-
-VS Code accepts community contributions through GitHub pull requests. The project follows a transparent development process with:
-- Public **iteration plans** published monthly
-- **Feature requests** tracked via GitHub Issues
-- **Insiders build** for early access and testing
+The development process is fairly transparent. Anyone can submit a pull request, feature requests are discussed publicly on GitHub Issues, and there's an Insiders build that lets you try new features before they hit the stable release.
 
 ---
 
 ## 6. Installation on Linux
 
-### Ubuntu / Debian-based Systems
+Installing VS Code on Ubuntu or any Debian-based distro involves adding Microsoft's package repository:
 
 ```bash
-# Download and install the GPG key
+# Add the GPG key
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
 
-# Add the repository
+# Add the repo
 echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/packages.microsoft.gpg] \
   https://packages.microsoft.com/repos/code stable main" | \
   sudo tee /etc/apt/sources.list.d/vscode.list
 
-# Update and install
+# Install
 sudo apt update
 sudo apt install code
 ```
 
-### Snap (universal)
+Or if you prefer Snap:
 
 ```bash
 sudo snap install code --classic
 ```
 
-### Verification
+After installation, you can verify it's working with:
 
 ```bash
 code --version
@@ -181,165 +153,136 @@ which code
 
 ## 7. Ethical Considerations
 
-### Telemetry and Privacy
+There are a few things worth thinking about when it comes to VS Code and ethics.
 
-The official VS Code binary includes **telemetry** that sends usage data to Microsoft. While this data is used to improve the product, it raises privacy concerns in the open-source community.
+**Telemetry and privacy** — The official VS Code binary sends usage data back to Microsoft. They say it's for improving the product, and you can turn it off in settings (`"telemetry.telemetryLevel": "off"`), but the fact that it's on by default is a valid concern. If privacy matters to you, VSCodium is the way to go.
 
-**Mitigation options:**
-1. Disable telemetry: `"telemetry.telemetryLevel": "off"` in settings.
-2. Use **VSCodium** — a community-maintained build without telemetry.
+**Corporate control of open source** — VS Code is technically open source, but Microsoft controls the direction of the project, the marketplace, and the binary distribution. The community can contribute, but ultimate decision-making power sits with Microsoft. This isn't necessarily bad, but it's worth being aware of.
 
-### Corporate Stewardship of Open Source
+Here's how I see the trade-offs:
 
-VS Code demonstrates the complex relationship between corporations and open source:
+| | Good side | Concern |
+|---|---|---|
+| Development | Full-time engineers work on it | Corporate priorities come first |
+| Licensing | Source code is MIT | Binary has proprietary terms |
+| Ecosystem | Huge marketplace | Potential lock-in via Microsoft extensions |
+| Community | Open contributions welcome | Microsoft has final say |
 
-| Aspect | Positive | Concern |
-|--------|----------|---------|
-| Development | Full-time engineers maintain the project | Corporate priorities may override community needs |
-| Licensing | MIT-licensed source code | Binary distribution has proprietary terms |
-| Ecosystem | Rich marketplace and integrations | Lock-in through Microsoft-specific extensions |
-| Community | Open contribution model | Governance is ultimately Microsoft-controlled |
-
-### Digital Inclusivity
-
-VS Code supports **accessibility features** including screen reader compatibility, high-contrast themes, and keyboard-only navigation — contributing positively to digital inclusivity in software development.
+**Accessibility** — On the positive side, VS Code supports screen readers, high-contrast themes, and full keyboard navigation. This makes it more inclusive than many alternatives.
 
 ---
 
 ## 8. Comparison with Proprietary Alternatives
 
-| Feature | VS Code (OSS) | Sublime Text | JetBrains IDEs |
-|---------|---------------|-------------|-----------------|
-| **License** | MIT (source) | Proprietary | Proprietary |
-| **Cost** | Free | $99 (one-time) | $149–$649/year |
-| **Extensions** | 40,000+ | ~5,000 | ~3,000 |
-| **Performance** | Good (Electron) | Excellent (native) | Good (JVM) |
-| **Language Support** | Via extensions | Via packages | Built-in (per IDE) |
-| **Remote Dev** | SSH, Containers, WSL | Limited | SSH, Docker |
-| **Collaboration** | Live Share | None | Code With Me |
-| **AI Integration** | GitHub Copilot | Limited | AI Assistant |
-| **Community** | Massive, open | Commercial | Commercial |
+I compared VS Code with two popular paid options — Sublime Text and JetBrains IDEs (like IntelliJ, PyCharm, etc.):
 
-### Key Takeaway
+| | VS Code | Sublime Text | JetBrains |
+|---|---|---|---|
+| License | MIT (source) | Proprietary | Proprietary |
+| Cost | Free | $99 one-time | $149–$649/year |
+| Extensions | 40,000+ | ~5,000 | ~3,000 |
+| Performance | Good (Electron) | Excellent (native) | Good (JVM-based) |
+| Language support | Via extensions | Via packages | Deep, built-in |
+| Remote dev | SSH, containers, WSL | Limited | SSH, Docker |
+| Collaboration | Live Share | None | Code With Me |
+| AI | GitHub Copilot | Limited | AI Assistant |
 
-VS Code offers the best **value proposition** for most developers: it is free, highly extensible, and backed by an active open-source community. While Sublime Text excels in raw performance and JetBrains IDEs offer deeper language-specific intelligence, VS Code's open nature and extensibility make it the most versatile choice.
+Sublime Text is faster because it's a native app, and JetBrains IDEs are smarter out of the box for specific languages (like Java or Python). But VS Code hits the sweet spot for most people — it's free, works with everything through extensions, and has the biggest community behind it.
 
 ---
 
 ## 9. Linux Footprint Analysis
 
-### Installation Footprint
+Here's what VS Code looks like on a Linux system in terms of resource usage:
 
-| Metric | Value |
-|--------|-------|
-| Package size (`.deb`) | ~95 MB |
+**Disk usage:**
+
+| | |
+|---|---|
+| Package size (.deb) | ~95 MB |
 | Installed size | ~350 MB |
-| Dependencies | ~15 shared libraries |
-| Configuration directory | `~/.config/Code/` |
-| Extensions directory | `~/.vscode/extensions/` |
-| Cache | `~/.config/Code/Cache/` |
+| Config directory | `~/.config/Code/` |
+| Extensions | `~/.vscode/extensions/` |
 
-### Process Footprint
+**Running processes:**
 
-VS Code runs multiple Electron processes:
+VS Code is an Electron app, so it spawns multiple processes. A typical session might look like:
 
-| Process | Purpose | Typical RAM |
-|---------|---------|------------|
-| `code` (main) | Window management | ~100 MB |
-| Extension Host | Runs extensions | ~150–500 MB |
-| File Watcher | Monitors file changes | ~30 MB |
+| Process | What it does | RAM (approx.) |
+|---|---|---|
+| Main process | Window management | ~100 MB |
+| Extension Host | Runs your extensions | 150–500 MB |
+| File Watcher | Watches for file changes | ~30 MB |
 | GPU Process | Hardware acceleration | ~50 MB |
 
-### Disk Usage Audit (Script 3 Results)
-
-The third script (`script3.sh`) audits critical system directories and checks VS Code's configuration directory, reporting permissions (symbolic + octal), owner, group, and disk usage for each.
+It's not the lightest editor out there, but it's manageable on any modern machine. The third script in this project (`script3.sh`) audits system directories and checks the VS Code config folder, which ties into this analysis.
 
 ---
 
 ## 10. Scripts Overview
 
-Five Bash scripts were developed as part of this audit, each demonstrating specific shell scripting concepts:
+I wrote five Bash scripts for this project. Here's a brief look at what each one does and what scripting concepts it demonstrates.
 
 ### Script 1 — System Identity Report
 
-**Purpose:** Gathers comprehensive host system information.
+Collects system info like hostname, distro, kernel version, CPU model, total RAM, and uptime. I used `/etc/os-release` for distro detection (with `lsb_release` as a fallback), and `/proc/cpuinfo` and `/proc/meminfo` for hardware info. The output is color-coded using ANSI escape sequences.
 
-**Concepts demonstrated:**
-- Variable assignment and command substitution
-- Sourcing files (`/etc/os-release`)
-- ANSI escape codes for colored output
-- Function-based code organization
+**Concepts:** variables, command substitution, functions, sourcing files, ANSI colors.
 
 ### Script 2 — FOSS Package Inspector
 
-**Purpose:** Inspects installation status and details of FOSS packages.
+Checks whether specific open-source tools are installed and shows their version, location, description, and license. I stored all the package metadata in Bash associative arrays, which is cleaner than writing separate if-else blocks for each package. You can pass custom package names as command-line arguments.
 
-**Concepts demonstrated:**
-- **Associative arrays** (Bash 4.0+) for a knowledge base
-- `command -v` for portable command existence checking
-- `case` statements and conditional logic
-- Command-line argument handling
+**Concepts:** associative arrays, `command -v`, case statements, argument handling.
 
 ### Script 3 — Disk & Permission Auditor
 
-**Purpose:** Audits system directory permissions and disk usage.
+Audits five key system directories for their permissions, ownership, and disk usage. I used the `stat` command for getting both symbolic and octal permissions, which is more reliable than parsing `ls -l` output. It also checks whether VS Code's config directory exists and reports how many files are in it.
 
-**Concepts demonstrated:**
-- **`stat`** command for precise permission parsing (octal + symbolic)
-- Array iteration with `for` loops
-- `printf` for formatted table output
-- `find` for recursive file counting
+**Concepts:** `stat` command, arrays, `for` loops, `printf` formatting, `find`.
 
 ### Script 4 — Log File Analyzer
 
-**Purpose:** Analyzes log files for keyword occurrences.
+Takes a log file and a keyword, then counts how many lines contain that keyword. Instead of reading the file line by line in Bash (which is extremely slow for large files), I used `grep -c` for counting. It also calculates what percentage of lines matched and gives a breakdown by log level (ERROR, WARNING, INFO, DEBUG, NOTICE).
 
-**Concepts demonstrated:**
-- **Optimized searching** with `grep -c` (vs. line-by-line loop)
-- `awk` for arithmetic (percentage calculation)
-- Input validation and error handling
-- `while` loop with timeout for empty-file waiting
+**Concepts:** `grep` optimization, `awk` for math, input validation, while loops with timeout.
 
-### Script 5 — Open Source Manifesto Generator
+### Script 5 — Manifesto Generator
 
-**Purpose:** Generates a personalized open-source manifesto.
+An interactive script that asks three questions about your views on open source and generates a personalized manifesto. I used a heredoc for the template and Bash namerefs (`local -n`) for the input-handling function, which lets you pass variable names into functions by reference.
 
-**Concepts demonstrated:**
-- **`read -p`** for interactive user input
-- **Namerefs** (`local -n`, Bash 4.3+) for pass-by-reference
-- **Heredoc** (`<<-MANIFESTO`) for multi-line template generation
-- File I/O with redirection
+**Concepts:** `read` for user input, namerefs, heredocs, file I/O.
 
 ---
 
 ## 11. Conclusion
 
-Visual Studio Code stands as a remarkable example of how open-source software can achieve mainstream success while maintaining its open nature. Key findings from this audit:
+After going through this audit, here's what I took away:
 
-1. **Licensing:** The MIT License on the source code ensures maximum freedom for developers, though the official binary adds proprietary elements.
+1. **VS Code's licensing is clever** — the MIT License on the source code makes it genuinely open, but the official binary adds proprietary elements. It's a good example of how "open source" isn't always black and white.
 
-2. **Community:** With 170,000+ GitHub stars and 2,000+ contributors, VS Code has one of the most vibrant open-source communities in the world.
+2. **The community is massive** — 170K+ GitHub stars, 2,000+ contributors, and 40,000+ extensions. That kind of ecosystem is hard to compete with.
 
-3. **Ecosystem:** The marketplace with 40,000+ extensions demonstrates the power of open platforms in fostering innovation.
+3. **Privacy is a real concern** — the telemetry in the official binary is opt-out, not opt-in. VSCodium exists as an alternative, but most people don't know about it.
 
-4. **Ethics:** The telemetry question highlights the tension between corporate-backed open source and user privacy, with OSS-friendly alternatives like VSCodium addressing the gap.
+4. **It works well on Linux** — the installation is straightforward, the footprint is reasonable, and it integrates with Linux development tools without any issues.
 
-5. **Linux Integration:** VS Code integrates well into the Linux ecosystem, with a manageable footprint and full compatibility with Linux-native development tools.
+5. **The scripts were a good exercise** — writing them gave me hands-on experience with things like associative arrays, `stat`, `grep` optimization, heredocs, and namerefs, which go beyond basic shell scripting.
 
-The five audit scripts demonstrate practical Bash scripting in a Linux environment, covering system introspection, package management, file permissions, log analysis, and interactive I/O — all essential skills for working effectively in the open-source ecosystem.
+Overall, VS Code is a solid example of open-source software done right — even if the corporate backing adds some complexity to the picture.
 
 ---
 
 ## 12. References
 
-1. Microsoft. (2025). *Visual Studio Code Documentation.* [https://code.visualstudio.com/docs](https://code.visualstudio.com/docs)
-2. GitHub. (2025). *microsoft/vscode Repository.* [https://github.com/microsoft/vscode](https://github.com/microsoft/vscode)
-3. Open Source Initiative. (2025). *The MIT License.* [https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT)
-4. Stack Overflow. (2024). *Developer Survey Results — Integrated Development Environment.* [https://survey.stackoverflow.co/](https://survey.stackoverflow.co/)
-5. VSCodium. (2025). *Free/Libre Open Source Software Binaries of VS Code.* [https://vscodium.com/](https://vscodium.com/)
-6. Free Software Foundation. (2025). *What is Free Software?* [https://www.gnu.org/philosophy/free-sw.html](https://www.gnu.org/philosophy/free-sw.html)
-7. Electron. (2025). *Build cross-platform desktop apps.* [https://www.electronjs.org/](https://www.electronjs.org/)
+1. Visual Studio Code documentation — [https://code.visualstudio.com/docs](https://code.visualstudio.com/docs)
+2. VS Code GitHub repository — [https://github.com/microsoft/vscode](https://github.com/microsoft/vscode)
+3. The MIT License — [https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT)
+4. Stack Overflow Developer Survey — [https://survey.stackoverflow.co/](https://survey.stackoverflow.co/)
+5. VSCodium — [https://vscodium.com/](https://vscodium.com/)
+6. What is Free Software (FSF) — [https://www.gnu.org/philosophy/free-sw.html](https://www.gnu.org/philosophy/free-sw.html)
+7. Electron framework — [https://www.electronjs.org/](https://www.electronjs.org/)
 
 ---
 
-*Report prepared by Amritanshu Gupta (24BCE11114) for the Open Source Software course audit.*
+*Report by Amritanshu Gupta (24BCE11114) — Open Source Software course.*
