@@ -20,7 +20,7 @@ readonly CLR_DIM='\033[2m'
 # ─── Configuration ─────────────────────────────────────────
 readonly STUDENT_NAME="Amritanshu Gupta"
 readonly REG_NO="24BCE11114"
-readonly SOFTWARE_CHOICE="Visual Studio Code"
+readonly SOFTWARE_CHOICE="VLC Media Player"
 
 # ─── Helper Functions ──────────────────────────────────────
 
@@ -117,7 +117,7 @@ main() {
     print_separator
     echo -e "\n  ${CLR_YELLOW}▸ Licensing Note${CLR_RESET}\n"
     echo -e "  The Linux kernel is released under the ${CLR_BOLD}GNU GPL v2${CLR_RESET} license."
-    echo -e "  VS Code is distributed under the ${CLR_BOLD}MIT License${CLR_RESET}.\n"
+    echo -e "  VLC Media Player is distributed under the ${CLR_BOLD}GNU GPL v2${CLR_RESET} license.\n"
 
     print_separator
     echo -e "${CLR_DIM}  Report generated on ${datetime}${CLR_RESET}\n"

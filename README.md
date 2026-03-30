@@ -1,4 +1,4 @@
-# Open Source Software Audit — Visual Studio Code
+# Open Source Software Audit — VLC Media Player
 
 **Name:** Amritanshu Gupta  
 **Reg No:** 24BCE11114  
@@ -8,7 +8,7 @@
 
 ## What is this project?
 
-This is my course project where I picked **Visual Studio Code** and did a full audit of it as an open-source software. I looked into how it's licensed (MIT), who maintains it, how it fits into the Linux ecosystem, and compared it with paid alternatives like Sublime Text and JetBrains.
+This is my course project where I picked **VLC Media Player** and did a full audit of it as an open-source software. I looked into how it's licensed (GPL v2), who maintains it, how it fits into the Linux ecosystem, and compared it with paid alternatives like Windows Media Player and iTunes.
 
 Along with the written report, I also wrote **5 Bash scripts** that do different system-level tasks — things like checking what's installed on your machine, reading log files, auditing folder permissions, etc. Each script demonstrates specific shell scripting concepts we covered in class.
 
@@ -41,7 +41,7 @@ Pulls together basic info about the system you're running on — hostname, distr
 
 ### Script 2 — FOSS Package Inspector
 
-Checks whether certain open-source tools are installed (like `git`, `python3`, `curl`, `vim`, and of course `code`). For each one, it shows the version, where the binary lives, a short description, and what license it uses. I used Bash associative arrays to store all the package info, which made the code cleaner than a bunch of if-else blocks.
+Checks whether certain open-source tools are installed (like `vlc`, `git`, `python3`, `curl`, and `ffmpeg`). For each one, it shows the version, where the binary lives, a short description, and what license it uses. I used Bash associative arrays to store all the package info, which made the code cleaner than a bunch of if-else blocks.
 
 You can also pass your own package names as arguments:
 
@@ -51,7 +51,7 @@ You can also pass your own package names as arguments:
 
 ### Script 3 — Disk & Permission Auditor
 
-Goes through important system directories (`/etc`, `/var/log`, `/home`, `/usr/bin`, `/tmp`) and shows their permissions in both symbolic and octal format, along with who owns them and how much space they use. I used the `stat` command instead of parsing `ls` output, which is more reliable. It also checks if VS Code's config folder exists at `~/.config/Code`.
+Goes through important system directories (`/etc`, `/var/log`, `/home`, `/usr/bin`, `/tmp`) and shows their permissions in both symbolic and octal format, along with who owns them and how much space they use. I used the `stat` command instead of parsing `ls` output, which is more reliable. It also checks if VLC's config folder exists at `~/.config/vlc`.
 
 ### Script 4 — Log File Analyzer
 
@@ -89,11 +89,11 @@ chmod +x script*.sh
 
 The full written report covers:
 
-- What VS Code is and its history
-- How the MIT License works
-- The community around VS Code (GitHub stats, extensions marketplace)
-- Privacy concerns with telemetry
-- How it compares to Sublime Text and JetBrains IDEs
+- What VLC is and its history
+- How the GPL v2 license works
+- The VideoLAN community and development process
+- Privacy and ethical considerations
+- How VLC compares to proprietary media players
 - Its footprint on a Linux system
 
 You can read it here: [`report/report.md`](report/report.md) or check the PDF version at [`report/report.pdf`](report/report.pdf).

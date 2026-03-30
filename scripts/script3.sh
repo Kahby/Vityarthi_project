@@ -69,9 +69,9 @@ audit_directory() {
 
 # Checks VS Code configuration directory presence and details.
 check_vscode_config() {
-    local config_dir="$HOME/.config/Code"
+    local config_dir="$HOME/.config/vlc"
 
-    echo -e "\n  ${CLR_YELLOW}▸ VS Code Configuration Directory${CLR_RESET}\n"
+    echo -e "\n  ${CLR_YELLOW}▸ VLC Configuration Directory${CLR_RESET}\n"
 
     if [ -d "$config_dir" ]; then
         local perms octal owner size file_count
@@ -88,7 +88,7 @@ check_vscode_config() {
         printf "    %-14s : %s\n" "Files"       "$file_count"
     else
         echo -e "    ${CLR_RED}✘ Not found:${CLR_RESET} $config_dir"
-        echo -e "    ${CLR_DIM}VS Code may not be installed, or uses a different config path.${CLR_RESET}"
+        echo -e "    ${CLR_DIM}VLC may not be installed, or uses a different config path.${CLR_RESET}"
     fi
 }
 

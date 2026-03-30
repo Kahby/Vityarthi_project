@@ -21,7 +21,7 @@ readonly CLR_DIM='\033[2m'
 
 # ─── Package Knowledge Base (associative array) ───────────
 declare -A PKG_DESCRIPTIONS=(
-    [code]="VS Code — lightweight, extensible open-source code editor by Microsoft"
+    [vlc]="VLC — free, open-source cross-platform multimedia player by VideoLAN"
     [git]="Git — distributed version control system for tracking source code changes"
     [nginx]="Nginx — high-performance HTTP server and reverse proxy"
     [python3]="Python 3 — general-purpose, high-level programming language"
@@ -34,7 +34,7 @@ declare -A PKG_DESCRIPTIONS=(
 )
 
 declare -A PKG_LICENSES=(
-    [code]="MIT License"
+    [vlc]="GPL v2"
     [git]="GPL v2"
     [nginx]="BSD-like (2-clause)"
     [python3]="PSF License"
@@ -47,7 +47,7 @@ declare -A PKG_LICENSES=(
 )
 
 # ─── Default packages to inspect ──────────────────────────
-DEFAULT_PACKAGES=("code" "git" "python3" "curl" "vim")
+DEFAULT_PACKAGES=("vlc" "git" "python3" "curl" "ffmpeg")
 
 # ─── Helper Functions ─────────────────────────────────────
 
